@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->longText('desc');
             $table->string('image')->nullable();
             $table->integer('qty');
+            $table->float('price',8,2);
             $table->timestamps();
         });
     }

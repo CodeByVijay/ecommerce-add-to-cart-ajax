@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -61,6 +62,10 @@ Route::group(['prefix' => 'customer',  'middleware' => 'auth'], function () {
     Route::get('/', function () {
         return view('users.index');
     })->name('customerDashboard');
+
+Route::post('add-to-cart',[HomeController::class,'addToCart'])->name('addToCart');
+Route::get('cart',[HomeController::class,'cart'])->name('goToCart');
+Route::get('delete-cart/{cartid}',[HomeController::class,'deleteCart'])->name('deleteCart');
 
 
     // User Logout Route
