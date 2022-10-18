@@ -46,7 +46,8 @@ class AdminController extends Controller
             $req->validate([
                 'product_name' => 'required',
                 'qty' => 'required',
-                'desc' => 'required'
+                'desc' => 'required',
+                'price' => 'required'
             ]);
             $msg = "Product Edited.";
         } else {
@@ -55,7 +56,8 @@ class AdminController extends Controller
                 'product_name' => 'required',
                 'image' => 'required|mimes:png,jpg,jpeg',
                 'qty' => 'required',
-                'desc' => 'required'
+                'desc' => 'required',
+                'price' => 'required'
             ], [
                 'image.mimes' => 'Please choose only png,jpg,jpeg image.',
             ]);
@@ -69,6 +71,7 @@ class AdminController extends Controller
         $product->product_name = $req->product_name;
         $product->qty = $req->qty;
         $product->desc = $req->desc;
+        $product->price = $req->price;
         $product->save();
 
         return redirect()->route('allProduct')->with('success', $msg);

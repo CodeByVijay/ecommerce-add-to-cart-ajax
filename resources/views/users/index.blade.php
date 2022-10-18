@@ -1,11 +1,10 @@
 <?php
-
 use App\Models\Cart;
 use App\Models\Product; ?>
 @extends('users.app')
 @section('title', 'Home')
 @section('contant')
-<?php $products = Product::get();
+<?php $products = Product::inRandomOrder()->get();
 $cart = Cart::where('user_id', auth()->user()->id)->count();
 ?>
 <div class="container mt-5 mb-5">
@@ -17,11 +16,12 @@ $cart = Cart::where('user_id', auth()->user()->id)->count();
                 <div class="card-body">
                     <h5 class="card-title">{{$product->product_name}}</h5>
                     <p class="card-text">{{$product->desc}}</p>
+                    <h6 class="card-text text-primary">&#8377; {{$product->price}}</h6>
                     <?php $cartData = Cart::where('user_id', auth()->user()->id)->where('product_id', $product->id)->get(); ?>
 
                     <?php if ($cartData->count() != 0) {
                     ?>
-                        <a href="#" class="btn btn-warning w-100">Go To Cart</a>
+                        <a href="{{route('goToCart')}}" class="btn btn-warning w-100">Go To Cart</a>
                     <?php
                     } else {
                     ?>

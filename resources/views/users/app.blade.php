@@ -43,7 +43,7 @@ $cart = Cart::where('user_id',auth()->user()->id)->count();
                     <a class="nav-link" href="{{route('customerDashboard')}}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Cart (<span class="text-danger" id="cartVal"><?= ($cart)!=0?$cart:0 ?></span>)</a>
+                    <a class="nav-link" href="{{route('goToCart')}}">Cart (<span class="text-danger" id="cartVal"><?= ($cart)!=0?$cart:0 ?></span>)</a>
                 </li>
 
 

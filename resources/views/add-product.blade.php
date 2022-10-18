@@ -66,6 +66,14 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <label for="">Price Per Quantity</label>
+                                    <input type="text" name="price" id="" class="form-control" placeholder="Product Price Per Quantity" value="{{old('price')}}" onkeypress="return onlyNumbersWithDot(event);">
+                                    @error('price')
+                                    <span class="text-danger">{{$message}}</span>
+                                    @enderror
+                                </div>
+
+                                <div class="form-group">
                                     <label for="">Product Description</label>
                                     <textarea name="desc" id="" class="form-control" placeholder="Product Description">{{old('desc')}}</textarea>
                                     @error('desc')
@@ -178,3 +186,21 @@
     <!-- End Page wrapper  -->
     <!-- ============================================================== -->
 @endsection
+@push('script')
+ <script>
+     function onlyNumbersWithDot(e) {
+            var charCode;
+            if (e.keyCode > 0) {
+                charCode = e.which || e.keyCode;
+            }
+            else if (typeof (e.charCode) != "undefined") {
+                charCode = e.which || e.keyCode;
+            }
+            if (charCode == 46)
+                return true
+            if (charCode > 31 && (charCode <48 || charCode > 57))
+                return false;
+            return true;
+        }
+ </script>
+@endpush

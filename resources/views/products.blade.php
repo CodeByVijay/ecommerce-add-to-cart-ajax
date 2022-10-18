@@ -51,6 +51,7 @@
                                         <th>Name</th>
                                         <th>Desc.</th>
                                         <th>Quantity</th>
+                                        <th>Price</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -63,6 +64,7 @@
                                             <td>{{$product->product_name}}</td>
                                             <td>{{$product->desc}}</td>
                                             <td>{{$product->qty}}</td>
+                                            <td>&#8377; {{$product->price}}</td>
                                             <td>
                                                 <a href="{{route('editProductForm',['pid'=>$product->id])}}" class="btn btn-success"><i class="fa fa-pencil"></i></a>
                                                 <a href="{{route('deleteProduct',['pid'=>$product->id])}}" class="btn btn-danger" onclick="return confirm('Are You Sure Delete This Product.')"><i class="fa fa-trash"></i></a>
