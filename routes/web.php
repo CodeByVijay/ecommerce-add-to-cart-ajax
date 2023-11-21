@@ -64,10 +64,10 @@ Route::group(['prefix' => 'customer',  'middleware' => 'auth'], function () {
         return view('users.index');
     })->name('customerDashboard');
 
-Route::post('add-to-cart',[HomeController::class,'addToCart'])->name('addToCart');
-Route::get('cart',[HomeController::class,'cart'])->name('goToCart');
-Route::get('delete-cart/{cartid}',[HomeController::class,'deleteCart'])->name('deleteCart');
-Route::post('cart-increment',[CartController::class,'cartIncrement'])->name('cartIncrement');
+    Route::post('add-to-cart', [HomeController::class, 'addToCart'])->name('addToCart');
+    Route::get('cart', [HomeController::class, 'cart'])->name('goToCart');
+    Route::get('delete-cart/{cartid}', [HomeController::class, 'deleteCart'])->name('deleteCart');
+    Route::post('cart-increment', [CartController::class, 'cartIncrement'])->name('cartIncrement');
 
 
 
